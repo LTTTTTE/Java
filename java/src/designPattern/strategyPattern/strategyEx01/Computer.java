@@ -1,7 +1,7 @@
 package designPattern.strategyPattern.strategyEx01;
 
 import java.util.Optional;
-import java.util.OptionalLong;
+
 
 public class Computer {
 
@@ -13,6 +13,7 @@ public class Computer {
     private Optional<Long> subMemory;
 
     public Computer() {
+
     }
 
     public Long getMainMemory() {
@@ -42,14 +43,18 @@ public class Computer {
         this.hdd.orElse(null).setStorage(this);
     }
 
-    public void setMainMemory(Long mainMemory) {
-        this.mainMemory = Optional.ofNullable(mainMemory);
+    public void setMainMemory(Optional<Long> mainMemory) {
+        this.mainMemory = mainMemory;
     }
-    public void setCpuClock(Double cpuClock){
-        this.cpuClock = Optional.ofNullable(cpuClock);
+    public void setCpuClock(Optional<Double> cpuClock){
+        this.cpuClock = cpuClock;
     }
-    public void setSubMemory(Long subMemory){
-        this.subMemory = Optional.ofNullable(subMemory);
+    public void setSubMemory(Optional<Long> subMemory){
+        this.subMemory = subMemory;
+    }
+
+    public void changeSpec(Ram ram, Cpu cpu , Hdd hdd){
+
     }
 
     public void showSpec(){
