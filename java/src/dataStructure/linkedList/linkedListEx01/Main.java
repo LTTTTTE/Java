@@ -16,5 +16,10 @@ public class Main {
         System.out.println(list.toString());
         list.removeFirst();
         System.out.println(list.toString());
+        list.removeIndex(1);
+        System.out.println(list.toString()+" : "+list.getLength());
+        list.addIndex(17,1);
+        System.out.println(list.toString()+ " : "+list.getLength());
+
     }
 }
