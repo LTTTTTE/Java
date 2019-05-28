@@ -23,7 +23,7 @@ public class Radio implements Transmission {
         station.addReceiver(this);
 
         frame = new JFrame("Radio");
-        frame.setSize(480,800);
+        frame.setSize(240,440);
         frame.setVisible(true);
 
         broadCastedText = new JTextArea();
@@ -41,9 +41,9 @@ public class Radio implements Transmission {
         Container panel = frame.getContentPane();
         panel.setLayout(null);
 
-        broadCastedText.setBounds(0,0,478,696);
-        broadCastingText.setBounds(0,698,296,96);
-        buttonSend.setBounds(298,698,178,98);
+        broadCastedText.setBounds(0,0,478/2,696/2);
+        broadCastingText.setBounds(0,698/2,296/2,96/2);
+        buttonSend.setBounds(298/2,698/2,178/2,98/2);
 
         broadCastedText.setEditable(false);
         broadCastedText.setBorder(new LineBorder(Color.RED,2));
