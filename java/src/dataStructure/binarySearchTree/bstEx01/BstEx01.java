@@ -17,7 +17,10 @@ public class BstEx01 {
         tree01.add(16);tree01.add(41);
         tree01.add(19);tree01.add(22);
 
+
         tree01.print();
         tree01.removeRecursive(30);
+        tree01.print();
+
     }
 }

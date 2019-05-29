@@ -105,11 +105,13 @@ public class BinarySearchTree {
     }
 
     public void removeRecursive(int data){
+        System.out.println(data + "를 죽이기위해");
         removeRecursiveLogic(searchRecursive(data));
     }
 
     public void removeRecursiveLogic(Node node){
-
+        Node search;
+        Node before;
         if(node.leftChild == null && node.rightChild == null){
             node = null;
             System.out.println("자식없어 바로죽임");
@@ -117,18 +119,54 @@ public class BinarySearchTree {
         else if(node.leftChild != null && node.rightChild != null){
 
             if(node.leftChild.rightChild != null){
-                node.setData(node.leftChild.rightChild.getData());
-                removeRecursiveLogic(node.leftChild.rightChild);
+                search = node.leftChild.rightChild;
+                before = search;
+                while(search.rightChild != null){
+                    before = search;
+                    search = search.rightChild;
+                }
+                if(search.leftChild != null){
+                    node.setData(search.getData());
+                    search.setData(search.leftChild.getData());
+                    search.leftChild = null;
+                }
+                else{
+                    node.setData(search.getData());
+                    before.rightChild = null;
+                }
                 System.out.println("결국 ! 두명의 자식이 있었으나 죽임");
                 return;
             }
             if(node.rightChild.leftChild != null){
-                node.setData(node.rightChild.leftChild.getData());
-                removeRecursiveLogic(node.rightChild.leftChild);
+                search = node.rightChild.leftChild;
+                before = search;
+                while(search.leftChild !=null){
+                    before = search;
+                    search = search.leftChild;
+                }
+                if(search.rightChild != null){
+                    node.setData(search.getData());
+                    search.setData(search.leftChild.getData());
+                    search.rightChild = null;
+                }
+                else{
+                    node.setData(search.getData());
+                    before.leftChild = null;
+                }
                 System.out.println("결국 ! 두명의 자식이 있었으나 죽임");
                 return;
             }
-            
+            if(node.leftChild.leftChild != null){
+                node.setData(node.leftChild.getData());
+                node.leftChild = node.leftChild.leftChild;
+                System.out.println("두명이있어서 왼쪽이랑 왼쪽의 왼쪽을 한칸씩 위로떙김");
+            }
+            if(node.rightChild.rightChild != null){
+                node.setData(node.rightChild.getData());
+                node.rightChild = node.rightChild.rightChild;
+                System.out.println("두명이있어서 오른쪽이랑 오른쪽의 오른쪽을 한칸씩 위로떙김");
+            }
+
 
             System.out.println("오류");
         }
