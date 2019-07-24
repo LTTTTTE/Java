@@ -13,5 +13,31 @@ public class Main {
 
     public static void quickSort(Integer[] list , int left , int right){
 
+        if(left >= right) return;
+
+        int key = left;
+        int start = left +1;
+        int end = right;
+        int temp;
+
+        while(start <= end ){
+
+            while(list[start] <= list[key]) start++;
+            while(list[end] >= list[key] && end > left) end--;
+
+            if(start > end){
+                temp = list[end];
+                list[end] = list[key];
+                list[key] = temp;
+            }
+            else{
+                temp = list[end];
+                list[end] = list[start];
+                list[start] = temp;
+            }
+        }
+
+        quickSort(list,left,end - 1);
+        quickSort(list,end + 1,right);
     }
 }

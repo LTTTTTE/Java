@@ -1,5 +1,7 @@
 package dataStructure.binarySearchTree.bstEx01;
 
+import java.util.TreeMap;
+
 public class BinarySearchTree {
 
     public Node root;
